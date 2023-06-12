@@ -1,3 +1,14 @@
+####################################################################################
+## This is an application to help find fragmented packets in a capture. 
+##
+##       python fragmented_packets.py <pcap_file>
+##
+## Author: Michael Colombo
+## Date: 6/12/2023 
+##
+####################################################################################
+#!/bin/env/python
+
 import sys
 import logging
 
