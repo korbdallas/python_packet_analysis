@@ -70,9 +70,18 @@ def identify_fragmented_packets(pcap_file):
                         'src_ip': ip.src,
                         'src_port': udp.sport,
                         'dst_ip': ip.dst,
-                        'dst_port': udp.dport,
-                        #'seq_num': None
+                        'dst_port': udp.dport
                     })
+                elif IP in packet:
+                    ip = packet[IP]
+                    fragmented_packets.append({
+                        'type': 'ICMP',
+                        'src_ip': ip.src,
+                        'dst_ip': ip.dst,
+                        'src_port': None,
+                        'dst_port': None
+                    })  
+
 
     if fragmented_packets:
         for packet in fragmented_packets:
