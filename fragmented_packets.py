@@ -52,7 +52,7 @@ def identify_fragmented_packets(pcap_file):
         if IP in packet:
             ip = packet[IP]
 
-            if ip.flags & 0x1:  # Check if the "More Fragments" flag is set
+            if ip.flags & 0x1 or ip.frag > 0:  # Check if the "More Fragments" flag is set
                 if TCP in packet:
                     tcp = packet[TCP]
                     fragmented_packets.append({
